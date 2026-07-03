@@ -1,0 +1,16 @@
+node_modules/
+.env
+.env.local
+.venv/
+data/
+pic/
+__pycache__/
+*.pyc
+dist/
+.idea/
+.DS_Store
+backend/data/
+frontend/dist/
+frontend/node_modules/
+backend/.env
+frontend/.env.local

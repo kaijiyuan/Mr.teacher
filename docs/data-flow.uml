@@ -1,0 +1,70 @@
+@startuml
+title AI Learning Assistant - Agent Components
+
+skinparam shadowing false
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam componentStyle rectangle
+skinparam defaultTextAlignment center
+skinparam rectangle {
+  RoundCorner 10
+}
+
+left to right direction
+
+actor Learner
+
+rectangle "Frontend" as Frontend
+rectangle "Backend API" as Backend
+
+package "Agents" as Agents {
+  rectangle "TutorAgent" as Tutor
+  rectangle "FileParserAgent" as FileParser
+  rectangle "MindmapAgent" as Mindmap
+  rectangle "QuizAgent" as Quiz
+  rectangle "PPTAgent" as PPT
+}
+
+package "Shared Services" as Services {
+  rectangle "LLM" as LLM
+  rectangle "PDF Parser" as Parser
+  rectangle "Knowledge Retrieval" as Retrieval
+}
+
+package "Memory & Storage" as Storage {
+  database "Chat Memory" as ChatMemory
+  database "Knowledge Index" as KnowledgeIndex
+  database "Quiz Records" as QuizRecords
+  folder "PPT Files" as PPTFiles
+}
+
+Learner --> Frontend
+Frontend --> Backend
+Backend --> Agents
+
+Tutor -[hidden]right- FileParser
+FileParser -[hidden]right- Mindmap
+Mindmap -[hidden]right- Quiz
+Quiz -[hidden]right- PPT
+
+Tutor --> LLM
+Tutor --> Retrieval
+
+FileParser --> Parser
+FileParser --> KnowledgeIndex
+
+Mindmap --> LLM
+Mindmap --> Retrieval
+
+Quiz --> LLM
+Quiz --> Retrieval
+Quiz --> QuizRecords
+
+PPT --> LLM
+PPT --> Retrieval
+PPT --> PPTFiles
+
+Backend --> ChatMemory
+Retrieval --> KnowledgeIndex
+
+@enduml

@@ -1,0 +1,23 @@
+# ===== Web 框架 =====
+fastapi>=0.100.0
+uvicorn>=0.20.0
+python-multipart>=0.0.20
+
+# ===== LLM / AI =====
+openai>=1.0.0
+
+# ===== 向量 & 检索 =====
+numpy>=1.24.0
+scikit-learn>=1.3.0
+jieba>=0.42.0
+networkx>=3.0
+sentence-transformers>=2.2.0
+
+# ===== HTTP 客户端 =====
+httpx>=0.27.0
+
+# ===== 配置管理 =====
+pydantic-settings>=2.0.0
+
+# ===== 文档生成 =====
+python-pptx>=1.0.0
